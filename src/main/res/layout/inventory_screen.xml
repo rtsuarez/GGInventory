@@ -1,0 +1,30 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    tools:ignore="MergeRootFrame" >
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Scan an item"
+        android:onClick="loadInventoryScreen"
+        android:id="@+id/scanItemButton"
+        android:layout_gravity="left|center_vertical" />
+
+    <Button
+        android:layout_width="125dp"
+        android:layout_height="wrap_content"
+        android:text="Dump database"
+        android:id="@+id/dumpDbButton"
+        android:layout_gravity="right|center_vertical" />
+
+    <Button
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:text="Create new record"
+        android:id="@+id/newRecordButton"
+        android:layout_gravity="center" />
+</FrameLayout>

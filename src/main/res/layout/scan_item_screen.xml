@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp">
+
+    <EditText
+        android:id="@+id/reminder"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Scan an item!" />
+
+    <EditText
+        android:id="@+id/plantname"
+        android:text="Plant name:"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/reminder"
+        android:layout_alignParentLeft="true"
+        android:layout_toLeftOf="@+id/times" />
+
+    <EditText
+        android:id="@+id/spinner4"
+        android:text="@string/qty"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/spinner"
+        android:layout_toLeftOf="@+id/spinner"
+        android:layout_alignParentLeft="true" />
+
+    <EditText
+        android:id="@+id/spinner5"
+        android:text="@string/type"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/spinner3"
+        android:layout_toLeftOf="@+id/spinner"
+        android:layout_alignParentLeft="true" />
+
+    <EditText
+        android:id="@+id/spinner6"
+        android:text="@string/cost"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/spinner3"
+        android:layout_toLeftOf="@+id/spinner3"
+        android:layout_alignParentLeft="true" />
+
+    <EditText
+        android:id="@+id/spinner8"
+        android:text="@string/details"
+        android:layout_width="96dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/spinner3"
+        android:layout_toLeftOf="@+id/spinner7"
+        android:layout_alignParentLeft="true" />
+
+    <EditText
+        android:id="@id/times"
+        android:layout_width="96dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/plantname"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:id="@+id/spinner"
+        android:layout_width="96dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/times"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:id="@+id/spinner2"
+        android:layout_width="96dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/spinner"
+        android:layout_alignLeft="@+id/spinner" />
+
+    <EditText
+        android:id="@+id/spinner3"
+        android:layout_width="96dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/spinner2"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:id="@+id/spinner7"
+        android:layout_width="96dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/spinner6"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Update"
+        android:id="@+id/updateButton"
+        android:layout_below="@+id/spinner8"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="185dp" />
+
+
+</RelativeLayout>

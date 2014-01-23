@@ -10,5 +10,24 @@
     <string name="type">Type</string>
     <string name="cost">Cost</string>
     <string name="details">Details</string>
+    <string name="inventory_button">Inventory</string>
+    <string name="sales_button">Sales</string>
+    <string name="dump_database">Dump Database</string>
+    <string name="scan_item">Scan Item</string>
+    <string name="new_record">New Record</string>
+   
+    <style name="ButtonText">
+	    <item name="android:layout_width">fill_parent</item>
+	    <item name="android:layout_height">wrap_content</item>
+	    <item name="android:textColor">#ffffff</item>
+	    <item name="android:gravity">center</item>
+	    <item name="android:layout_margin">3dp</item>
+	    <item name="android:textSize">30dp</item>
+	    <item name="android:textStyle">bold</item>
+	    <item name="android:shadowColor">#000000</item>
+	    <item name="android:shadowDx">1</item>
+	    <item name="android:shadowDy">1</item>
+	    <item name="android:shadowRadius">2</item>
+	</style>
 
 </resources>

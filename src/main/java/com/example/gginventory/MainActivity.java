@@ -20,9 +20,9 @@ public class MainActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main2);
 
-        Button btnNextScreen = (Button) findViewById(R.id.inventoryButton);
+        Button btnNextScreen = (Button) findViewById(R.id.inventory_button);
 
         btnNextScreen.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {

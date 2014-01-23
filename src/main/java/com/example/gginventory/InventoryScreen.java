@@ -14,11 +14,11 @@ public class InventoryScreen extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.inventory_screen);
+        setContentView(R.layout.inventory_screen2);
 
-        Button btnScan = (Button) findViewById(R.id.scanItemButton);
-        Button btnNewRec = (Button) findViewById(R.id.newRecordButton);
-        Button btnDumpDb = (Button) findViewById(R.id.dumpDbButton);
+        Button btnScan = (Button) findViewById(R.id.scan_item_button);
+        Button btnNewRec = (Button) findViewById(R.id.new_record_button);
+        Button btnDumpDb = (Button) findViewById(R.id.dump_database_button);
 
         Intent i = getIntent();
 

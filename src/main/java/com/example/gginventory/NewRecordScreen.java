@@ -16,6 +16,7 @@ public class NewRecordScreen extends Activity{
 
         Button btnNewRec = (Button) findViewById(R.id.addRecordButton);
         Button btnPrintQR = (Button) findViewById(R.id.QRButton);
+        Button btnTakePhoto = (Button) findViewById(R.id.takePictureButton);
 
         Intent i = getIntent();
 
@@ -39,6 +40,16 @@ public class NewRecordScreen extends Activity{
                 //Sending data to another Activity
                 //startActivity(nextScreen);
                 finish();
+            }
+        });
+
+        btnTakePhoto.setOnClickListener(new View.OnClickListener(){
+
+            public void onClick(View argo0){
+
+                Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
+                startActivityForResult(intent, 0);
+                //finish();
             }
         });
     }

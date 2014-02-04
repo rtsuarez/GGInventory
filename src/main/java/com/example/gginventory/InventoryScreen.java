@@ -40,6 +40,7 @@ public class InventoryScreen extends Activity {
                 startActivity(nextScreen);
             }
         });
+
         btnDumpDb.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
                 //Closing SecondScreen Activity

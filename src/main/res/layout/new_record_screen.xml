@@ -50,7 +50,7 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/textView5"
         android:layout_below="@+id/textView5"
-        android:text="@string/details"
+        android:text="@string/discription"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textSize="30sp" />
 
@@ -64,51 +64,51 @@
         android:textSize="30sp" />
 
     <Spinner
-        android:id="@+id/spinner4"
+        android:id="@+id/NRDiscriptionSpinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/NRNotesSpinner"
         android:layout_alignRight="@+id/textView1"
-        android:layout_below="@+id/spinner3"
-        android:layout_toRightOf="@+id/textView2"
-        android:entries="@array/temp_fill" />
+        android:layout_below="@+id/NRNotesSpinner"
+        android:entries="@array/discription" />
 
     <Spinner
-        android:id="@+id/spinner3"
+        android:id="@+id/NRNotesSpinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/textView6"
-        android:layout_alignLeft="@+id/spinner4"
+        android:layout_alignLeft="@+id/NRTypeSpinner"
         android:layout_alignRight="@+id/textView1"
-        android:layout_below="@+id/spinner2"
-        android:entries="@array/temp_fill" />
+        android:layout_below="@+id/NRTypeSpinner"
+        android:entries="@array/notes" />
 
     <Spinner
-        android:id="@+id/spinner2"
+        android:id="@+id/NRTypeSpinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/textView5"
-        android:layout_alignLeft="@+id/spinner3"
+        android:layout_alignLeft="@+id/NRQtySpinner"
         android:layout_alignRight="@+id/textView1"
-        android:layout_below="@+id/Spinner01"
-        android:entries="@array/temp_fill" />
+        android:layout_below="@+id/NRQtySpinner"
+        android:entries="@array/type" />
 
     <Spinner
-        android:id="@+id/Spinner01"
+        android:id="@+id/NRQtySpinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/textView4"
-        android:layout_alignLeft="@+id/spinner2"
+        android:layout_alignLeft="@+id/autoCompleteTextView1"
         android:layout_alignRight="@+id/textView1"
         android:layout_alignTop="@+id/textView3"
-        android:entries="@array/temp_fill" />
+        android:entries="@array/quantity" />
 
     <AutoCompleteTextView
         android:id="@+id/autoCompleteTextView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/textView2"
-        android:layout_alignLeft="@+id/Spinner01"
         android:layout_alignParentRight="true"
+        android:layout_toRightOf="@+id/textView6"
         android:ems="10" >
 
         <requestFocus />
@@ -118,47 +118,87 @@
         android:id="@+id/imageView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/spinner4"
+        android:layout_alignBottom="@+id/NRDiscriptionSpinner"
         android:layout_alignRight="@+id/autoCompleteTextView1"
         android:layout_below="@+id/autoCompleteTextView1"
-        android:layout_toRightOf="@+id/spinner4"
+        android:layout_toRightOf="@+id/NRDiscriptionSpinner"
         android:src="@drawable/ic_launcher" />
 
-    <LinearLayout
+    <Spinner
+        android:id="@+id/NRRetailSpinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView6"
-        android:layout_alignRight="@+id/imageView1"
-        android:layout_below="@+id/spinner4"
+        android:layout_alignBottom="@+id/TextView01"
+        android:layout_alignRight="@+id/NRDiscriptionSpinner"
+        android:layout_below="@+id/textView6"
+        android:layout_toRightOf="@+id/textView6"
+        android:entries="@array/quantity" />
+
+    <Spinner
+        android:id="@+id/NRLandscapeSpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/TextView02"
+        android:layout_alignLeft="@+id/NRRetailSpinner"
+        android:layout_alignRight="@+id/NRRetailSpinner"
+        android:layout_below="@+id/TextView01"
+        android:entries="@array/quantity" />
+
+    <TextView
+        android:id="@+id/TextView01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView6"
+        android:text="@string/retail"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/TextView02"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/TextView01"
+        android:text="@string/landscape"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textSize="30sp" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/NRLandscapeSpinner"
         android:orientation="horizontal" >
 
         <Button
             android:id="@+id/QRButton"
-	        android:layout_width="0dp"
-	        android:layout_height="fill_parent"
-	        android:layout_margin="1dp"
-	        android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_margin="1dp"
+            android:layout_weight="1"
             android:background="@drawable/green_button"
             android:text="Print QR Code" />
 
         <Button
             android:id="@+id/addRecordButton"
-	        android:layout_width="0dp"
-	        android:layout_height="fill_parent"
-	        android:layout_margin="1dp"
-	        android:layout_weight="1"
-            android:background="@drawable/red_button"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_margin="1dp"
+            android:layout_weight="1"
+            android:background="@drawable/purple_button"
             android:text="Add Record" />
-        
+
         <Button
             android:id="@+id/takePictureButton"
-	        android:layout_width="0dp"
-	        android:layout_height="fill_parent"
-	        android:layout_margin="1dp"
-	        android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_margin="1dp"
+            android:layout_weight="1"
             android:background="@drawable/blue_button"
             android:text="Take Picture" />
-
     </LinearLayout>
 
 </RelativeLayout>

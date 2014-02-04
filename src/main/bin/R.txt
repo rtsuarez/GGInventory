@@ -236,10 +236,10 @@ int drawable ic_launcher 0x7f020059
 int drawable purple_button 0x7f02005a
 int drawable red_button 0x7f02005b
 int id NRDiscriptionSpinner 0x7f050047
-int id NRLandscapeSpinner 0x7f050051
+int id NRLandscapeSpinner 0x7f05004f
 int id NRNotesSpinner 0x7f050048
 int id NRQtySpinner 0x7f05004a
-int id NRRetailSpinner 0x7f05004f
+int id NRRetailSpinner 0x7f05004d
 int id NRTypeSpinner 0x7f050049
 int id QRButton 0x7f050052
 int id ScanDiscriptionSpinner 0x7f050055
@@ -250,7 +250,7 @@ int id ScanQtySpinner 0x7f050059
 int id ScanRetail 0x7f050056
 int id ScanRetailSpinner 0x7f05005c
 int id ScanTypeSpinner 0x7f050058
-int id TextView01 0x7f05004d
+int id TextView01 0x7f05004e
 int id TextView02 0x7f050050
 int id action_bar 0x7f05001c
 int id action_bar_activity_content 0x7f050015
@@ -287,7 +287,7 @@ int id ifRoom 0x7f05000a
 int id image 0x7f050027
 int id imageView1 0x7f05004c
 int id inventory_button 0x7f05003d
-int id linearLayout1 0x7f05004e
+int id linearLayout1 0x7f050051
 int id listMode 0x7f050001
 int id list_item 0x7f050029
 int id middle 0x7f050012

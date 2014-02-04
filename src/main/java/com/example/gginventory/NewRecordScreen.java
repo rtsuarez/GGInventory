@@ -48,8 +48,8 @@ public class NewRecordScreen extends Activity{
                 Record newRec = new Record();
                 TextView tv = (TextView) findViewById(R.id.autoCompleteTextView1);
                 newRec.setName(tv.getText().toString());
-
                 Spinner spin = (Spinner)findViewById(R.id.NRQtySpinner);
+
                 int qty = Integer.parseInt(spin.getSelectedItem().toString());
                 newRec.setQty(qty);
                 //newRec.defaultFields();

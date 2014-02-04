@@ -993,10 +993,10 @@ containing a value of this type.
     }
     public static final class id {
         public static final int NRDiscriptionSpinner=0x7f050047;
-        public static final int NRLandscapeSpinner=0x7f050051;
+        public static final int NRLandscapeSpinner=0x7f05004f;
         public static final int NRNotesSpinner=0x7f050048;
         public static final int NRQtySpinner=0x7f05004a;
-        public static final int NRRetailSpinner=0x7f05004f;
+        public static final int NRRetailSpinner=0x7f05004d;
         public static final int NRTypeSpinner=0x7f050049;
         public static final int QRButton=0x7f050052;
         public static final int ScanDiscriptionSpinner=0x7f050055;
@@ -1007,7 +1007,7 @@ containing a value of this type.
         public static final int ScanRetail=0x7f050056;
         public static final int ScanRetailSpinner=0x7f05005c;
         public static final int ScanTypeSpinner=0x7f050058;
-        public static final int TextView01=0x7f05004d;
+        public static final int TextView01=0x7f05004e;
         public static final int TextView02=0x7f050050;
         public static final int action_bar=0x7f05001c;
         public static final int action_bar_activity_content=0x7f050015;
@@ -1044,7 +1044,7 @@ containing a value of this type.
         public static final int image=0x7f050027;
         public static final int imageView1=0x7f05004c;
         public static final int inventory_button=0x7f05003d;
-        public static final int linearLayout1=0x7f05004e;
+        public static final int linearLayout1=0x7f050051;
         public static final int listMode=0x7f050001;
         public static final int list_item=0x7f050029;
         public static final int middle=0x7f050012;

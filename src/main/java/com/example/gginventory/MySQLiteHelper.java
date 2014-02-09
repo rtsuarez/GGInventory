@@ -3,6 +3,7 @@ package com.example.gginventory;
 /**
  * Created by Ryan on 1/29/14.
  */
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -25,6 +26,20 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
             + COLUMNS[3] + " INTEGER, "
             + COLUMNS[4] + " INTEGER"
             + ");";
+
+
+    public void updateRowByName(String plantname, int qty, String type, String notes, String details) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues args = new ContentValues();
+        args.put("_qty", qty);
+        args.put("_type", type);
+        args.put("_notes", notes);
+        args.put("_details", details);
+
+        db.update(TABLE_NAME, args, "_plantname=\"" + plantname + "\"", null);
+
+    }
 
     public MySQLiteHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);

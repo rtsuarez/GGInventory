@@ -35,7 +35,10 @@ public class RecordDataSource {
         ContentValues values = new ContentValues();
         values.put(MySQLiteHelper.COLUMNS[0], record.getName());
         values.put(MySQLiteHelper.COLUMNS[1], record.getQty());
-        System.out.println("QTY = " + record.getQty());
+        values.put(MySQLiteHelper.COLUMNS[2], record.getType());
+        values.put(MySQLiteHelper.COLUMNS[3], record.getNotes());
+        values.put(MySQLiteHelper.COLUMNS[4], record.getDetails());
+
         long insertName = database.insert(MySQLiteHelper.TABLE_NAME, null,
                 values);
         Cursor cursor = database.query(MySQLiteHelper.TABLE_NAME,
@@ -52,6 +55,11 @@ public class RecordDataSource {
         System.out.println("Record deleted with id: " + name);
         database.delete(MySQLiteHelper.TABLE_NAME, MySQLiteHelper.COLUMNS[0]
                 + " = " + name, null);
+    }
+
+
+    public void updateRecordByName(String plantname, int qty, String type, String notes, String details) {
+        dbHelper.updateRowByName(plantname, qty, type, notes, details);
     }
 
     public List<Record> getAllRecord() {
@@ -75,6 +83,9 @@ public class RecordDataSource {
         Record record = new Record();
         record.setName(cursor.getString(0));
         record.setQty(Integer.parseInt(cursor.getString(1)));
+        record.setType(cursor.getString(2));
+        record.setNotes(cursor.getString(3));
+        record.setDetails(cursor.getString(4));
         return record;
     }
 } 

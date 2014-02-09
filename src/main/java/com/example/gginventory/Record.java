@@ -28,6 +28,19 @@ public class Record {
 
     public void setQty(int qty) { this.qty = qty; }
 
+    public String getType() {return this.type;}
+
+    public void setNotes(String notes) {this.notes = notes;}
+
+    public String getNotes() {return this.notes;}
+
+    public void setDetails(String details) {this.details = details;}
+
+    public String getDetails() {return this.details;}
+
+    public void setType(String type) {this.type = type;}
+
+
     public void defaultFields() {
         this.qty = 1;
         this.type = "type";

@@ -25,9 +25,6 @@ public class NewRecordScreen extends Activity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.new_record_screen);
 
-        final LinearLayout lView = new LinearLayout(this);
-        final TextView myText = new TextView(this);
-
         datasource = new RecordDataSource(this);
         datasource.open();
 
@@ -48,10 +45,23 @@ public class NewRecordScreen extends Activity{
                 Record newRec = new Record();
                 TextView tv = (TextView) findViewById(R.id.autoCompleteTextView1);
                 newRec.setName(tv.getText().toString());
+                
                 Spinner spin = (Spinner)findViewById(R.id.NRQtySpinner);
-
                 int qty = Integer.parseInt(spin.getSelectedItem().toString());
                 newRec.setQty(qty);
+
+                Spinner spin1 = (Spinner)findViewById(R.id.NRTypeSpinner);
+                String type = spin1.getSelectedItem().toString();
+                newRec.setType(type);
+
+                Spinner spin2 = (Spinner)findViewById(R.id.NRNotesSpinner);
+                String notes = spin2.getSelectedItem().toString();
+                newRec.setNotes(notes);
+
+                Spinner spin3 = (Spinner)findViewById(R.id.NRDiscriptionSpinner);
+                String details = spin3.getSelectedItem().toString();
+                newRec.setDetails(details);
+                
                 //newRec.defaultFields();
                 Record r = datasource.createRecord(newRec);
                 finish();
@@ -65,19 +75,8 @@ public class NewRecordScreen extends Activity{
                 //Intent nextScreen = new Intent(getApplicationContext(), InventoryScreen.class);
                 //Sending data to another Activity
                 //startActivity(nextScreen);
-                List<Record> records = datasource.getAllRecord();
-                ListIterator<Record> it = records.listIterator();
-                String dump = "Start Db Dump: \n" +
-                        "NAME   QTY\n";
-                while(it.hasNext()) {
-                    Record r = it.next();
-                    dump +=  r.getName() + " " + r.getQty() + "\n";
-                }
-                myText.setText(dump);
-                lView.addView(myText);
 
-                setContentView(lView);
-                //finish();
+                finish();
             }
         });
 

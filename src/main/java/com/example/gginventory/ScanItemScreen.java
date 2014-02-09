@@ -5,10 +5,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+
+import java.util.List;
 
 /**
  * Created by Ryan on 1/20/14.
@@ -26,6 +30,16 @@ public class ScanItemScreen extends Activity{
         datasource.open();
 
         Button btnUpdate = (Button) findViewById(R.id.updateButton);
+
+        AutoCompleteTextView actv = (AutoCompleteTextView) findViewById(R.id.autoCompleteTextView1);
+
+        List<Record> records = datasource.getAllRecord();
+        String[] plants = new String[records.size()];
+        for (int i = 0; i < records.size(); i++)
+            plants[i] = records.get(i).getName();
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.list_item, plants);
+        actv.setAdapter(adapter);
 
         Intent i = getIntent();
 

@@ -1,32 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_margin="1dp"
-    android:orientation="horizontal">
-    
-    <Button
-        android:id="@+id/sales_button"
-        android:layout_width="0dp"
-        android:layout_height="fill_parent"
-        android:layout_margin="1dp"
-        android:layout_weight="1"
-        android:text="@string/sales_button"
-        android:background="@drawable/purple_button"
-        style="@style/ButtonText" />
-        
-    <Button
-        android:id="@+id/inventory_button"
-        android:layout_width="0dp"
-        android:layout_height="fill_parent"
-        android:layout_margin="1dp"
-        android:layout_weight="1"
-        android:text="@string/inventory_button"
-        android:background="@drawable/blue_button"
-        style="@style/ButtonText"/>
-    
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#000000"
+    android:weightSum="1">
 
+    <TextView
+        android:paddingTop="70px"
+        android:layout_width="match_parent"
+        android:layout_height="175dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/titleText"
+        android:textAlignment="center"
+        android:textSize="90dp"
+        android:textColor="#EDBD01"
+        android:id="@+id/mainTitle"
+        android:gravity="center_horizontal"
+        android:typeface="sans"
+        android:textStyle="bold"/>
 
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="344dp"
+        android:weightSum="1"
+        android:paddingTop="50dp"
+        android:baselineAligned="false">
 
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:weightSum="1"
+            android:paddingLeft="220px"
+            android:paddingRight="25px">
 
+            <Button
+                android:id="@+id/sales_button"
+                android:background="@drawable/green_button"
+                android:text="@string/sales_button"
+                style = "@style/ButtonText"
+                android:layout_width="387dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dip"
+                android:gravity="center"
+                android:fontFamily="serif"
+                android:textSize="60dp"
+                android:textColor="#000000"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:weightSum="1"
+            android:layout_weight="1"
+            android:paddingRight="200px"
+            android:paddingLeft="25px">
+
+            <Button
+                android:id="@+id/inventory_button"
+                android:background="@drawable/blue_button"
+                android:text="@string/inventory_button"
+                style = "@style/ButtonText"
+                android:layout_width="387dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:gravity="center"
+                android:fontFamily="serif"
+                android:textSize="60dp"
+                android:textColor="#000000"/>
+        </LinearLayout>
+    </LinearLayout>
+    <ImageView
+        android:layout_width="111dp"
+        android:layout_height="138dp"
+        android:background="@drawable/logo"
+        android:layout_gravity="center_horizontal" />
 </LinearLayout>

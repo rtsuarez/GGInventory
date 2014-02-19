@@ -24,17 +24,17 @@
         android:orientation="horizontal"
         android:layout_width="fill_parent"
         android:layout_height="277dp"
-        android:weightSum="1"
+        android:layout_weight="1"
         android:paddingTop="50dp"
-        android:baselineAligned="false">
+        android:baselineAligned="true">
 
         <LinearLayout
             android:orientation="horizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:weightSum="1"
-            android:paddingLeft="220px"
-            android:paddingRight="25px">
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:gravity="right"
+            >
 
             <Button
                 android:id="@+id/sales_button"
@@ -43,8 +43,6 @@
                 style = "@style/ButtonText"
                 android:layout_width="387dp"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="10dip"
-                android:gravity="center"
                 android:fontFamily="sans-serif"
                 android:textSize="60dp"
                 android:textColor="#000000"
@@ -52,14 +50,16 @@
 
         </LinearLayout>
 
+        <Space
+            android:layout_width="20px"
+            android:layout_height="20px" />
+
         <LinearLayout
             android:orientation="horizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:weightSum="1"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
             android:layout_weight="1"
-            android:paddingRight="200px"
-            android:paddingLeft="25px">
+            android:gravity="left">
 
             <Button
                 android:id="@+id/inventory_button"
@@ -74,6 +74,7 @@
                 android:textSize="60dp"
                 android:textColor="#000000"/>
         </LinearLayout>
+
     </LinearLayout>
     <ImageView
         android:layout_width="111dp"

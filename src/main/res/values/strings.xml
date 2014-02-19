@@ -6,10 +6,10 @@
 
     <string name="reminder">Scan an item</string>
     <string name="plantname">Plant name:</string>
-    <string name="qty">Qty</string>
+    <string name="qty">Quantity</string>
     <string name="type">Type</string>
     <string name="cost">Cost</string>
-    <string name="discription">Discription</string>
+    <string name="description">Description</string>
     <string name="titleText">Growing Grounds</string>
     <string name="inventory_button">Inventory</string>
     <string name="sales_button">Sales</string>
@@ -19,6 +19,6 @@
     <string name="retail">Retail</string>
     <string name="landscape">Landscape</string>
     <string name="notes">Notes</string>
-    <string name="create_new_rec">Create a new record</string>
+    <string name="create_new_rec">New Record</string>
     
 </resources>

@@ -9,7 +9,7 @@
     <TextView
         android:paddingTop="70px"
         android:layout_width="match_parent"
-        android:layout_height="175dp"
+        android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/titleText"
         android:textAlignment="center"
@@ -18,12 +18,12 @@
         android:id="@+id/mainTitle"
         android:gravity="center_horizontal"
         android:typeface="sans"
-        android:textStyle="bold"/>
+        android:textStyle="bold" />
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="fill_parent"
-        android:layout_height="344dp"
+        android:layout_height="277dp"
         android:weightSum="1"
         android:paddingTop="50dp"
         android:baselineAligned="false">
@@ -45,7 +45,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginLeft="10dip"
                 android:gravity="center"
-                android:fontFamily="serif"
+                android:fontFamily="sans-serif"
                 android:textSize="60dp"
                 android:textColor="#000000"
                 />
@@ -70,7 +70,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginLeft="10dp"
                 android:gravity="center"
-                android:fontFamily="serif"
+                android:fontFamily="sans-serif"
                 android:textSize="60dp"
                 android:textColor="#000000"/>
         </LinearLayout>

@@ -98,7 +98,6 @@ public class Record {
 		this.USDA_Zone = USDA_Zone;
 	}
 
-
     public void defaultFields() {
         this.qty = 1;
         this.type = "type";

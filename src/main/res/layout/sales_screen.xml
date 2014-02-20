@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal" >
+    android:orientation="horizontal"
+    android:background="#000">
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -13,10 +14,12 @@
         <EditText
             android:id="@+id/salesEditText"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="69dp"
             android:ems="10"
-            android:hint="@string/sales_help" >
-
+            android:hint="@string/sales_help"
+            android:textSize="25dp"
+            android:paddingLeft="10dp"
+            android:textColor="#fff">
             <requestFocus />
         </EditText>
 
@@ -28,7 +31,8 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_marginTop="10dp"
-            android:src="@drawable/logo" />
+            android:src="@drawable/logo"
+            android:background="#000"/>
 
     </LinearLayout>
 
@@ -36,7 +40,9 @@
         android:id="@+id/salesPlantList"
         android:layout_width="136dp"
         android:layout_height="wrap_content"
-        android:layout_weight="0.50" >
+        android:layout_weight="0.50"
+        android:cacheColorHint="#000"
+        android:background="#fff">
 
     </ListView>
 

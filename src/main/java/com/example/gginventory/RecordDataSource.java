@@ -83,7 +83,7 @@ public class RecordDataSource {
     	return database.rawQuery(query, null);
     }
 
-    private Record cursorToRecord(Cursor cursor) {
+    public Record cursorToRecord(Cursor cursor) {
         Record record = new Record();
         record.setName(cursor.getString(0));
         record.setQty(Integer.parseInt(cursor.getString(1)));

@@ -7,7 +7,6 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
@@ -45,12 +44,11 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues args = new ContentValues();
-        args.put("_qty", qty);
-        args.put("_type", type);
-        args.put("_notes", notes);
-        args.put("_details", details);
-        args.put("_retail", retail);
-        args.put("_landscape", landscape);
+
+        args.put(COLUMNS[1], qty);
+        args.put(COLUMNS[2], type);
+        args.put(COLUMNS[3], notes);
+        args.put(COLUMNS[4], details);
 
         db.update(TABLE_NAME, args, "_plantname=\"" + plantname + "\"", null);
     }

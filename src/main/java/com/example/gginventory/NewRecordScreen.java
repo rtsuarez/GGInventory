@@ -2,9 +2,12 @@ package com.example.gginventory;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -18,7 +21,8 @@ import javax.sql.CommonDataSource;
  * Created by Ryan on 1/20/14.
  */
 public class NewRecordScreen extends Activity{
-
+	static final int REQUEST_IMAGE_CAPTURE = 1;
+	private ImageView mImageView;
     private RecordDataSource datasource;
 
     public void onCreate(Bundle savedInstanceState) {
@@ -32,6 +36,8 @@ public class NewRecordScreen extends Activity{
         Button btnPrintQR = (Button) findViewById(R.id.QRButton);
         Button btnTakePhoto = (Button) findViewById(R.id.takePictureButton);
 
+        mImageView = (ImageView) findViewById(R.id.imageView1);
+        
         Intent i = getIntent();
 
         // Binding Click event to Button
@@ -75,19 +81,34 @@ public class NewRecordScreen extends Activity{
                 //Intent nextScreen = new Intent(getApplicationContext(), InventoryScreen.class);
                 //Sending data to another Activity
                 //startActivity(nextScreen);
+            	DatabaseSync dbSync = new DatabaseSync();
+            	dbSync.execute(getApplicationContext());
 
-                finish();
+                //finish();
             }
         });
 
         btnTakePhoto.setOnClickListener(new View.OnClickListener(){
 
             public void onClick(View argo0){
-
-                Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
-                startActivityForResult(intent, 0);
+            	dispatchTakePictureIntent();
                 //finish();
             }
         });
+    }
+    
+    private void dispatchTakePictureIntent() {
+        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+            startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+        }
+    }
+    
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
+            Bundle extras = data.getExtras();
+            Bitmap imageBitmap = (Bitmap) extras.get("data");
+            mImageView.setImageBitmap(imageBitmap);
+        }
     }
 }

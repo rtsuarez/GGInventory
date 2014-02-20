@@ -50,7 +50,7 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/textView5"
         android:layout_below="@+id/textView5"
-        android:text="@string/discription"
+        android:text="@string/details"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textSize="30sp" />
 

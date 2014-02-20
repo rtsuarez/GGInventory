@@ -23,6 +23,7 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main2);
 
         Button btnNextScreen = (Button) findViewById(R.id.inventory_button);
+        Button btnSalesScreen = (Button) findViewById(R.id.sales_button);
 
         btnNextScreen.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
@@ -32,6 +33,17 @@ public class MainActivity extends ActionBarActivity {
                 startActivity(nextScreen);
                 }
         });
+        
+        btnSalesScreen.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0) {
+                //Starting a new Intent
+                Intent salesScreen = new Intent(getApplicationContext(), SalesScreen.class);
+                //Sending data to another Activity
+                startActivity(salesScreen);
+                }
+        });
+        
+        
     }
 
 

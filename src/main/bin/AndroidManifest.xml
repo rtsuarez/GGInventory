@@ -26,6 +26,7 @@
         <activity android:name=".InventoryScreen"></activity>
         <activity android:name=".ScanItemScreen"></activity>
         <activity android:name=".NewRecordScreen"></activity>
+        <activity android:name=".SalesScreen"></activity>
 
     </application>
 

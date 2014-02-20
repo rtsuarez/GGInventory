@@ -66,8 +66,14 @@ public class ScanItemScreen extends Activity{
 
                 Spinner spin3 = (Spinner)findViewById(R.id.ScanDiscriptionSpinner);
                 String details = spin3.getSelectedItem().toString();
+                
+                Spinner spin4 = (Spinner)findViewById(R.id.ScanRetailSpinner);
+                int retail = Integer.parseInt(spin4.getSelectedItem().toString());
+                
+                Spinner spin5 = (Spinner)findViewById(R.id.ScanLandscapeSpinner);
+                int landscape = Integer.parseInt(spin5.getSelectedItem().toString());
 
-                datasource.updateRecordByName(plantname, qty, type, notes, details);
+                datasource.updateRecordByName(plantname, qty, type, notes, details, retail, landscape);
 
                 finish();
             }

@@ -58,8 +58,8 @@ public class RecordDataSource {
     }
 
 
-    public void updateRecordByName(String plantname, int qty, String type, String notes, String details) {
-        dbHelper.updateRowByName(plantname, qty, type, notes, details);
+    public void updateRecordByName(String plantname, int qty, String type, String notes, String details, int retail, int landscape) {
+        dbHelper.updateRowByName(plantname, qty, type, notes, details, retail, landscape);
     }
 
     public List<Record> getAllRecord() {
@@ -77,6 +77,10 @@ public class RecordDataSource {
         // make sure to close the cursor
         cursor.close();
         return records;
+    }
+    
+    public Cursor queryDatabase(String query){
+    	return database.rawQuery(query, null);
     }
 
     private Record cursorToRecord(Cursor cursor) {

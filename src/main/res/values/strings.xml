@@ -9,7 +9,7 @@
     <string name="qty">Qty</string>
     <string name="type">Type</string>
     <string name="cost">Cost</string>
-    <string name="discription">Discription</string>
+    <string name="details">Details</string>
     <string name="titleText">Growing Grounds</string>
     <string name="inventory_button">Inventory</string>
     <string name="sales_button">Sales</string>
@@ -20,5 +20,7 @@
     <string name="landscape">Landscape</string>
     <string name="notes">Notes</string>
     <string name="create_new_rec">Create a new record</string>
+    <string name="sales_help">Enter Plant Name</string>
+    <string name="price">Price</string>
     
 </resources>

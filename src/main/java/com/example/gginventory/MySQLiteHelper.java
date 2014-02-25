@@ -16,7 +16,7 @@ import android.util.Log;
 public class MySQLiteHelper extends SQLiteOpenHelper {
 
     public static final String TABLE_NAME = "inventory";
-    public static final String[] COLUMNS = {"_plantname", "_commonname", "_description", "_type", "_notes", "_details", "_qty", "_retail", "_landscape", "_usdazone"};
+    public static final String[] COLUMNS = {"_plantname", "_qty","_type", "_notes", "_details", "_commonname", "_description", "_retail", "_landscape", "_usdazone"};
 
     private static final String DATABASE_NAME = "gginventory.db";
     private static final int DATABASE_VERSION = 1;
@@ -45,10 +45,10 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
 
         ContentValues args = new ContentValues();
 
-        args.put(COLUMNS[1], qty);
-        args.put(COLUMNS[2], type);
-        args.put(COLUMNS[3], notes);
-        args.put(COLUMNS[4], details);
+        args.put("_qty", qty);
+        args.put("_type", type);
+        args.put("_notes", notes);
+        args.put("_details", details);
 
         db.update(TABLE_NAME, args, "_plantname=\"" + plantname + "\"", null);
     }

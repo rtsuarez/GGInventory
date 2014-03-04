@@ -24,7 +24,7 @@
         </EditText>
 
         <ImageView
-            android:id="@+id/imageView1"
+            android:id="@+id/salesPlantPicture"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginBottom="10dp"

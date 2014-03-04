@@ -994,22 +994,22 @@ containing a value of this type.
     }
     public static final class id {
         public static final int NRDiscriptionSpinner=0x7f050049;
-        public static final int NRLandscapeSpinner=0x7f050051;
+        public static final int NRLandscapeSpinner=0x7f050053;
         public static final int NRNotesSpinner=0x7f05004a;
         public static final int NRQtySpinner=0x7f05004c;
-        public static final int NRRetailSpinner=0x7f05004f;
+        public static final int NRRetailSpinner=0x7f050051;
         public static final int NRTypeSpinner=0x7f05004b;
         public static final int QRButton=0x7f050054;
-        public static final int ScanDiscriptionSpinner=0x7f050059;
-        public static final int ScanLandscape=0x7f05005e;
-        public static final int ScanLandscapeSpinner=0x7f050061;
-        public static final int ScanNotesSpinner=0x7f05005b;
-        public static final int ScanQtySpinner=0x7f05005d;
-        public static final int ScanRetail=0x7f05005a;
-        public static final int ScanRetailSpinner=0x7f050060;
-        public static final int ScanTypeSpinner=0x7f05005c;
-        public static final int TextView01=0x7f050050;
-        public static final int TextView02=0x7f050052;
+        public static final int ScanDiscriptionSpinner=0x7f05005a;
+        public static final int ScanLandscape=0x7f05005f;
+        public static final int ScanLandscapeSpinner=0x7f050062;
+        public static final int ScanNotesSpinner=0x7f05005c;
+        public static final int ScanQtySpinner=0x7f05005e;
+        public static final int ScanRetail=0x7f05005b;
+        public static final int ScanRetailSpinner=0x7f050061;
+        public static final int ScanTypeSpinner=0x7f05005d;
+        public static final int TextView01=0x7f050052;
+        public static final int TextView02=0x7f05004d;
         public static final int action_bar=0x7f05001c;
         public static final int action_bar_activity_content=0x7f050015;
         public static final int action_bar_container=0x7f05001b;
@@ -1021,11 +1021,11 @@ containing a value of this type.
         public static final int action_menu_divider=0x7f050016;
         public static final int action_menu_presenter=0x7f050017;
         public static final int action_mode_close_button=0x7f050024;
-        public static final int action_settings=0x7f050062;
+        public static final int action_settings=0x7f050063;
         public static final int activity_chooser_view_content=0x7f050025;
         public static final int addRecordButton=0x7f050055;
         public static final int always=0x7f05000b;
-        public static final int autoCompleteTextView1=0x7f05004d;
+        public static final int autoCompleteTextView1=0x7f05004e;
         public static final int beginning=0x7f050011;
         public static final int checkbox=0x7f05002d;
         public static final int collapseActionView=0x7f05000d;
@@ -1043,10 +1043,10 @@ containing a value of this type.
         public static final int icon=0x7f05002a;
         public static final int ifRoom=0x7f05000a;
         public static final int image=0x7f050027;
-        public static final int imageView1=0x7f05004e;
+        public static final int imageView1=0x7f05004f;
         public static final int inventoryTitle=0x7f05003f;
         public static final int inventory_button=0x7f05003e;
-        public static final int linearLayout1=0x7f050053;
+        public static final int linearLayout1=0x7f050050;
         public static final int listMode=0x7f050001;
         public static final int list_item=0x7f050029;
         public static final int mainTitle=0x7f05003c;
@@ -1059,7 +1059,8 @@ containing a value of this type.
         public static final int progress_horizontal=0x7f050019;
         public static final int radio=0x7f05002f;
         public static final int salesEditText=0x7f050057;
-        public static final int salesPlantList=0x7f050058;
+        public static final int salesPlantList=0x7f050059;
+        public static final int salesPlantPicture=0x7f050058;
         public static final int sales_button=0x7f05003d;
         public static final int scan_item_button=0x7f050040;
         public static final int search_badge=0x7f050032;
@@ -1089,7 +1090,7 @@ containing a value of this type.
         public static final int title=0x7f05002b;
         public static final int top_action_bar=0x7f050020;
         public static final int up=0x7f050021;
-        public static final int updateButton=0x7f05005f;
+        public static final int updateButton=0x7f050060;
         public static final int useLogo=0x7f050003;
         public static final int withText=0x7f05000c;
     }
@@ -1205,6 +1206,8 @@ containing a value of this type.
         public static final int landscape=0x7f0a001d;
         public static final int new_record=0x7f0a001b;
         public static final int notes=0x7f0a001e;
+        public static final int pictureFail=0x7f0a0023;
+        public static final int pictureSuccess=0x7f0a0022;
         public static final int plantname=0x7f0a0010;
         public static final int price=0x7f0a0021;
         public static final int qty=0x7f0a0011;

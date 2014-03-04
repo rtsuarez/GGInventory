@@ -23,5 +23,7 @@
     <string name="create_new_rec">Create a new record</string>
     <string name="sales_help">Enter Plant Name</string>
     <string name="price">Price</string>
+    <string name="pictureSuccess">The picture was taken Successfully</string>
+    <string name="pictureFail">Error taking or saving the picture</string>
     
 </resources>

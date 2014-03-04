@@ -1,21 +1,25 @@
 package com.example.gginventory;
 
+import java.io.File;
 import java.util.ArrayList;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.app.ListActivity;
-import android.content.Context;
 import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.KeyEvent;
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class SalesScreen extends Activity {
@@ -24,6 +28,7 @@ public class SalesScreen extends Activity {
 	private ListView plantList;
 	private RecordDataSource datasource;
 	private ArrayList<String> matchList;
+	private ImageView plantPicture;
 	
     public void onCreate(Bundle savedInstanceState) {
     	super.onCreate(savedInstanceState);
@@ -35,6 +40,7 @@ public class SalesScreen extends Activity {
 	protected void initLayout(){
 		textField = (EditText)findViewById(R.id.salesEditText);
 		plantList = (ListView)findViewById(R.id.salesPlantList);
+		plantPicture = (ImageView)findViewById(R.id.salesPlantPicture);
         datasource = new RecordDataSource(this);
         datasource.open();
         matchList = new ArrayList<String>();
@@ -76,6 +82,33 @@ public class SalesScreen extends Activity {
 				return;
 			}
 		});	
+		
+		plantList.setOnItemClickListener(new OnItemClickListener(){
+
+			@SuppressLint("NewApi")
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+				String item = ((TextView)view).getText().toString();
+				
+				if(plantPicture == null){
+					Toast.makeText(getBaseContext(), "plant pic is null", Toast.LENGTH_LONG).show();
+				}
+				
+				plantPicture.setImageURI(
+						Uri.fromFile(
+								new File(
+										Environment.getExternalStoragePublicDirectory(
+												Environment.DIRECTORY_PICTURES), 
+												"GrowingGrounds"+ 
+												File.separator + 
+												item + 
+												File.separator + 
+												"1.jpg")));
+				
+			}
+			
+		});
 
 	}
+	
 }

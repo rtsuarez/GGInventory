@@ -1205,6 +1205,8 @@ containing a value of this type.
         public static final int landscape=0x7f0a001d;
         public static final int new_record=0x7f0a001b;
         public static final int notes=0x7f0a001e;
+        public static final int pictureFail=0x7f0a0023;
+        public static final int pictureSuccess=0x7f0a0022;
         public static final int plantname=0x7f0a0010;
         public static final int price=0x7f0a0021;
         public static final int qty=0x7f0a0011;

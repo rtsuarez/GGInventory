@@ -20,6 +20,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class SalesScreen extends Activity {
 	
@@ -39,7 +40,7 @@ public class SalesScreen extends Activity {
 	protected void initLayout(){
 		textField = (EditText)findViewById(R.id.salesEditText);
 		plantList = (ListView)findViewById(R.id.salesPlantList);
-		plantPicture = (ImageView)findViewById(R.id.imageView1);
+		plantPicture = (ImageView)findViewById(R.id.salesPlantPicture);
         datasource = new RecordDataSource(this);
         datasource.open();
         matchList = new ArrayList<String>();
@@ -89,7 +90,20 @@ public class SalesScreen extends Activity {
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 				String item = ((TextView)view).getText().toString();
 				
-				plantPicture.setImageURI(Uri.fromFile(new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), "GrowingGrounds"+ File.separator + item +  File.separator + "1.jpg")));
+				if(plantPicture == null){
+					Toast.makeText(getBaseContext(), "plant pic is null", Toast.LENGTH_LONG).show();
+				}
+				
+				plantPicture.setImageURI(
+						Uri.fromFile(
+								new File(
+										Environment.getExternalStoragePublicDirectory(
+												Environment.DIRECTORY_PICTURES), 
+												"GrowingGrounds"+ 
+												File.separator + 
+												item + 
+												File.separator + 
+												"1.jpg")));
 				
 			}
 			

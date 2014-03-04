@@ -33,16 +33,16 @@ public class RecordDataSource {
 
     public Record createRecord(Record record) {
         ContentValues values = new ContentValues();
-        values.put(MySQLiteHelper.COLUMNS[0], record.getName());
-        values.put(MySQLiteHelper.COLUMNS[1], record.getQty());
-        values.put(MySQLiteHelper.COLUMNS[2], record.getType());
-        values.put(MySQLiteHelper.COLUMNS[3], record.getNotes());
-        values.put(MySQLiteHelper.COLUMNS[4], record.getDetails());
+        values.put("_plantname", record.getName());
+        values.put("_qty", record.getQty());
+        values.put("_type", record.getType());
+        values.put("_notes", record.getNotes());
+        values.put("_details", record.getDetails());
 
         long insertName = database.insert(MySQLiteHelper.TABLE_NAME, null,
                 values);
         Cursor cursor = database.query(MySQLiteHelper.TABLE_NAME,
-                allColumns, MySQLiteHelper.COLUMNS[0] + " = " + insertName, null,
+                allColumns, "_plantname" + " = " + insertName, null,
                 null, null, null);
         cursor.moveToFirst();
  //       Record newRecord = cursorToRecord(cursor);
@@ -83,7 +83,7 @@ public class RecordDataSource {
     	return database.rawQuery(query, null);
     }
 
-    private Record cursorToRecord(Cursor cursor) {
+    public Record cursorToRecord(Cursor cursor) {
         Record record = new Record();
         record.setName(cursor.getString(0));
         record.setQty(Integer.parseInt(cursor.getString(1)));

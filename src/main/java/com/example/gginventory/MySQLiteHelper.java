@@ -7,7 +7,6 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
@@ -17,7 +16,7 @@ import android.util.Log;
 public class MySQLiteHelper extends SQLiteOpenHelper {
 
     public static final String TABLE_NAME = "inventory";
-    public static final String[] COLUMNS = {"_plantname", "_commonname", "_description", "_type", "_notes", "_details", "_qty", "_retail", "_landscape", "_usdazone"};
+    public static final String[] COLUMNS = {"_plantname", "_qty","_type", "_notes", "_details", "_commonname", "_description", "_retail", "_landscape", "_usdazone"};
 
     private static final String DATABASE_NAME = "gginventory.db";
     private static final int DATABASE_VERSION = 1;
@@ -45,12 +44,11 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues args = new ContentValues();
+
         args.put("_qty", qty);
         args.put("_type", type);
         args.put("_notes", notes);
         args.put("_details", details);
-        args.put("_retail", retail);
-        args.put("_landscape", landscape);
 
         db.update(TABLE_NAME, args, "_plantname=\"" + plantname + "\"", null);
     }

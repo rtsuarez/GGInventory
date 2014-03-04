@@ -5,12 +5,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.database.Cursor;
 
 import java.util.List;
 
@@ -31,15 +33,64 @@ public class ScanItemScreen extends Activity{
 
         Button btnUpdate = (Button) findViewById(R.id.updateButton);
 
-        AutoCompleteTextView actv = (AutoCompleteTextView) findViewById(R.id.autoCompleteTextView1);
+        final AutoCompleteTextView actv = (AutoCompleteTextView) findViewById(R.id.autoCompleteTextView1);
 
-        List<Record> records = datasource.getAllRecord();
+        final List<Record> records = datasource.getAllRecord();
         String[] plants = new String[records.size()];
         for (int i = 0; i < records.size(); i++)
             plants[i] = records.get(i).getName();
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.list_item, plants);
         actv.setAdapter(adapter);
+
+        actv.setThreshold(1);
+
+        actv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                String plantname = ((TextView) findViewById(R.id.autoCompleteTextView1)).getText().toString();
+
+                Record record = new Record();
+
+                for (int j = 0; j < records.size(); j++)
+                    if (records.get(j).getName().equals(plantname)) {
+                        record = records.get(j);
+                        break;
+                    }
+
+                String[] qtyStrings = getResources().getStringArray(R.array.quantity);
+                int k = 0;
+                for (k = 0; k < qtyStrings.length; k++)
+                    if (qtyStrings[k].equals(Integer.toString(record.getQty())))
+                        break;
+
+                Spinner spin = (Spinner)findViewById(R.id.ScanQtySpinner);
+                spin.setSelection(k);
+
+
+                String[] typeStrings = getResources().getStringArray((R.array.type));
+                for (k = 0; k < typeStrings.length; k++)
+                    if (typeStrings[k].equals(record.getType()))
+                        break;
+                Spinner spin1 = (Spinner)findViewById(R.id.ScanTypeSpinner);
+                spin1.setSelection(k);
+
+                String[] notesStrings = getResources().getStringArray(R.array.notes);
+                for (k = 0; k < notesStrings.length - 1; k++)
+                    if (notesStrings[k].equals(record.getNotes()))
+                        break;
+                Spinner spin2 = (Spinner)findViewById(R.id.ScanNotesSpinner);
+                spin2.setSelection(k);
+
+                String[] detailsStrings = getResources().getStringArray(R.array.discription);
+                for (k = 0; k < detailsStrings.length - 1; k++)
+                    if (detailsStrings[k].equals(record.getDetails()))
+                        break;
+                Spinner spin3 = (Spinner)findViewById(R.id.ScanDiscriptionSpinner);
+                spin3.setSelection(k);
+
+            }
+        });
 
         Intent i = getIntent();
 

@@ -3,7 +3,8 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:paddingLeft="16dp"
-    android:paddingRight="16dp" >
+    android:paddingRight="16dp"
+    android:background="#000">
 
     <TextView
         android:id="@+id/textView1"
@@ -12,56 +13,70 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:text="@string/scan_item"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:textSize="50dp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#EDBD01"
+        android:fontFamily="sans-serif"
+        android:textStyle="bold"/>
 
     <TextView
         android:id="@+id/textView3"
+        android:textColor="#fff"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/textView2"
         android:layout_below="@+id/textView2"
         android:text="@string/qty"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        android:background="#000"/>
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
+        android:textColor="#fff"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/textView3"
         android:layout_below="@+id/textView3"
         android:text="@string/type"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        android:background="#000"/>
 
     <TextView
         android:id="@+id/textView5"
+        android:textColor="#fff"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/textView4"
         android:layout_below="@+id/textView4"
         android:text="@string/notes"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        android:background="#000"/>
 
     <TextView
         android:id="@+id/textView6"
+        android:textColor="#fff"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/textView5"
         android:layout_below="@+id/textView5"
         android:text="@string/details"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        android:background="#000"/>
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView1"
-        android:text="Name:"
+        android:text="Name"
+        android:textColor="#fff"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        android:background="#000"
+        android:layout_below="@+id/textView1" />
 
     <Spinner
         android:id="@+id/ScanDiscriptionSpinner"
@@ -70,47 +85,58 @@
         android:layout_above="@+id/ScanRetail"
         android:layout_alignRight="@+id/textView1"
         android:layout_below="@+id/ScanNotesSpinner"
-        android:layout_toRightOf="@+id/textView6"
-        android:entries="@array/discription" />
+        android:entries="@array/discription"
+        android:layout_alignLeft="@+id/ScanNotesSpinner"
+        android:layout_alignStart="@+id/ScanNotesSpinner"
+        android:background="#fff"/>
 
     <Spinner
         android:id="@+id/ScanNotesSpinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/textView6"
-        android:layout_alignLeft="@+id/ScanDiscriptionSpinner"
         android:layout_alignRight="@+id/textView1"
         android:layout_below="@+id/ScanTypeSpinner"
-        android:entries="@array/notes" />
+        android:entries="@array/notes"
+        android:layout_alignLeft="@+id/ScanTypeSpinner"
+        android:layout_alignStart="@+id/ScanTypeSpinner"
+        android:background="#fff"/>
 
     <Spinner
         android:id="@+id/ScanTypeSpinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/textView5"
-        android:layout_alignLeft="@+id/ScanNotesSpinner"
         android:layout_alignRight="@+id/textView1"
         android:layout_below="@+id/ScanQtySpinner"
-        android:entries="@array/type" />
+        android:entries="@array/type"
+        android:background="#fff"
+        android:layout_above="@+id/textView5"
+        android:layout_alignLeft="@+id/ScanQtySpinner"
+        android:layout_alignStart="@+id/ScanQtySpinner" />
 
     <Spinner
         android:id="@+id/ScanQtySpinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/textView4"
-        android:layout_alignLeft="@+id/ScanTypeSpinner"
         android:layout_alignRight="@+id/textView1"
         android:layout_alignTop="@+id/textView3"
-        android:entries="@array/quantity" />
+        android:entries="@array/quantity"
+        android:background="#fff"
+        android:layout_alignLeft="@+id/autoCompleteTextView1"
+        android:layout_alignStart="@+id/autoCompleteTextView1" />
 
     <AutoCompleteTextView
         android:id="@+id/autoCompleteTextView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/textView2"
-        android:layout_alignLeft="@+id/ScanQtySpinner"
         android:layout_alignParentRight="true"
-        android:ems="10" >
+        android:ems="10"
+        android:background="#fff"
+        android:paddingLeft="10dp"
+        android:layout_below="@+id/textView1"
+        android:layout_toRightOf="@+id/ScanLandscape">
 
         <requestFocus />
     </AutoCompleteTextView>
@@ -119,11 +145,12 @@
         android:id="@+id/imageView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/ScanDiscriptionSpinner"
         android:layout_alignRight="@+id/autoCompleteTextView1"
-        android:layout_below="@+id/autoCompleteTextView1"
         android:layout_toRightOf="@+id/ScanDiscriptionSpinner"
-        android:src="@drawable/ic_launcher" />
+        android:src="@drawable/logo"
+        android:layout_above="@+id/updateButton"
+        android:layout_alignTop="@+id/autoCompleteTextView1"
+        android:background="#000"/>
 
     <TextView
         android:id="@+id/ScanRetail"
@@ -131,19 +158,24 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/textView6"
         android:layout_below="@+id/textView6"
+        android:textColor="#fff"
         android:text="@string/retail"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        android:background="#000"/>
 
     <TextView
         android:id="@+id/ScanLandscape"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/ScanRetail"
+        android:textColor="#fff"
         android:layout_below="@+id/ScanRetail"
         android:text="@string/landscape"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        android:background="#000"
+        android:paddingRight="2dp" />
 
     <Button
         android:id="@+id/updateButton"
@@ -151,9 +183,11 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/ScanLandscape"
         android:layout_alignRight="@+id/imageView1"
-        android:layout_below="@+id/ScanLandscape"
         android:background="@drawable/green_button"
-        android:text="Update" />
+        android:text="Update"
+        android:paddingTop="2dp"
+        android:layout_below="@+id/ScanLandscape"
+        android:layout_marginTop="5dp" />
 
     <Spinner
         android:id="@+id/ScanRetailSpinner"
@@ -162,8 +196,10 @@
         android:layout_above="@+id/ScanLandscape"
         android:layout_below="@+id/textView6"
         android:layout_toLeftOf="@+id/imageView1"
-        android:layout_toRightOf="@+id/textView6"
-        android:entries="@array/quantity" />
+        android:entries="@array/quantity"
+        android:layout_alignLeft="@+id/ScanDiscriptionSpinner"
+        android:layout_alignStart="@+id/ScanDiscriptionSpinner"
+        android:background="#fff"/>
 
     <Spinner
         android:id="@+id/ScanLandscapeSpinner"
@@ -172,7 +208,8 @@
         android:layout_above="@+id/updateButton"
         android:layout_alignTop="@+id/ScanLandscape"
         android:layout_toLeftOf="@+id/imageView1"
-        android:layout_toRightOf="@+id/textView6"
-        android:entries="@array/quantity" />
+        android:entries="@array/quantity"
+        android:background="#fff"
+        android:layout_toRightOf="@+id/ScanLandscape"/>
 
 </RelativeLayout>

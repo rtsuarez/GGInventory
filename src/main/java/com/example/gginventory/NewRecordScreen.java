@@ -25,6 +25,11 @@ public class NewRecordScreen extends Activity{
 	private ImageView mImageView;
     private RecordDataSource datasource;
 
+    protected void onDestroy() {
+        super.onDestroy();
+        datasource.close();
+    }
+
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.new_record_screen);
@@ -81,10 +86,13 @@ public class NewRecordScreen extends Activity{
                 //Intent nextScreen = new Intent(getApplicationContext(), InventoryScreen.class);
                 //Sending data to another Activity
                 //startActivity(nextScreen);
-            	DatabaseSync dbSync = new DatabaseSync();
-            	dbSync.execute(getApplicationContext());
+            	//DatabaseSync dbSync = new DatabaseSync();
+            	//dbSync.execute(getApplicationContext());
 
-                //finish();
+                GGDataSync dbSync = new GGDataSync();
+                dbSync.execute(getApplicationContext());
+
+                finish();
             }
         });
 

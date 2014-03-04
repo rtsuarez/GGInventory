@@ -60,7 +60,11 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase database) {
     	Log.w("MySQLiteHelper", DATABASE_CREATE);
-        database.execSQL(DATABASE_CREATE);
+        System.out.println(DATABASE_CREATE);
+        //database.execSQL("DROP TABLE inventory;");
+        try {
+            database.execSQL(DATABASE_CREATE);
+        } catch (Exception e){}
     }
 
     @Override

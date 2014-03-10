@@ -78,51 +78,51 @@
         android:background="#000"
         android:layout_below="@+id/textView1" />
 
-    <Spinner
+    <EditText
         android:id="@+id/ScanDiscriptionSpinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/ScanRetail"
         android:layout_alignRight="@+id/textView1"
         android:layout_below="@+id/ScanNotesSpinner"
-        android:entries="@array/discription"
         android:layout_alignLeft="@+id/ScanNotesSpinner"
         android:layout_alignStart="@+id/ScanNotesSpinner"
+        android:editable="true"
         android:background="#fff"/>
 
-    <Spinner
+    <EditText
         android:id="@+id/ScanNotesSpinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/textView6"
         android:layout_alignRight="@+id/textView1"
+        android:editable="true"
         android:layout_below="@+id/ScanTypeSpinner"
-        android:entries="@array/notes"
         android:layout_alignLeft="@+id/ScanTypeSpinner"
         android:layout_alignStart="@+id/ScanTypeSpinner"
         android:background="#fff"/>
 
-    <Spinner
+    <EditText
         android:id="@+id/ScanTypeSpinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignRight="@+id/textView1"
         android:layout_below="@+id/ScanQtySpinner"
-        android:entries="@array/type"
         android:background="#fff"
         android:layout_above="@+id/textView5"
+        android:editable="true"
         android:layout_alignLeft="@+id/ScanQtySpinner"
         android:layout_alignStart="@+id/ScanQtySpinner" />
 
-    <Spinner
+    <EditText
         android:id="@+id/ScanQtySpinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/textView4"
         android:layout_alignRight="@+id/textView1"
         android:layout_alignTop="@+id/textView3"
-        android:entries="@array/quantity"
         android:background="#fff"
+        android:editable="true"
         android:layout_alignLeft="@+id/autoCompleteTextView1"
         android:layout_alignStart="@+id/autoCompleteTextView1" />
 
@@ -189,26 +189,26 @@
         android:layout_below="@+id/ScanLandscape"
         android:layout_marginTop="5dp" />
 
-    <Spinner
+    <EditText
         android:id="@+id/ScanRetailSpinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/ScanLandscape"
         android:layout_below="@+id/textView6"
+        android:editable="true"
         android:layout_toLeftOf="@+id/imageView1"
-        android:entries="@array/quantity"
         android:layout_alignLeft="@+id/ScanDiscriptionSpinner"
         android:layout_alignStart="@+id/ScanDiscriptionSpinner"
         android:background="#fff"/>
 
-    <Spinner
+    <EditText
         android:id="@+id/ScanLandscapeSpinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/updateButton"
         android:layout_alignTop="@+id/ScanLandscape"
         android:layout_toLeftOf="@+id/imageView1"
-        android:entries="@array/quantity"
+        android:editable="true"
         android:background="#fff"
         android:layout_toRightOf="@+id/ScanLandscape"/>
 

@@ -14,6 +14,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.database.Cursor;
 
+import org.w3c.dom.Text;
+
 import java.util.List;
 
 /**
@@ -58,37 +60,26 @@ public class ScanItemScreen extends Activity{
                         break;
                     }
 
-                String[] qtyStrings = getResources().getStringArray(R.array.quantity);
-                int k = 0;
-                for (k = 0; k < qtyStrings.length; k++)
-                    if (qtyStrings[k].equals(Integer.toString(record.getQty())))
-                        break;
+                EditText spin = (EditText)findViewById(R.id.ScanQtySpinner);
+                spin.setText(Integer.toString(record.getQty()), TextView.BufferType.EDITABLE);
 
-                Spinner spin = (Spinner)findViewById(R.id.ScanQtySpinner);
-                spin.setSelection(k);
+                EditText spin1 = (EditText)findViewById(R.id.ScanTypeSpinner);
+                spin1.setText(record.getType(), TextView.BufferType.EDITABLE);
 
+                EditText spin2 = (EditText)findViewById(R.id.ScanNotesSpinner);
+                spin2.setText(record.getNotes(), TextView.BufferType.EDITABLE);
 
-                String[] typeStrings = getResources().getStringArray((R.array.type));
-                for (k = 0; k < typeStrings.length; k++)
-                    if (typeStrings[k].equals(record.getType()))
-                        break;
-                Spinner spin1 = (Spinner)findViewById(R.id.ScanTypeSpinner);
-                spin1.setSelection(k);
+                EditText spin3 = (EditText)findViewById(R.id.ScanTypeSpinner);
+                spin3.setText(record.getType(), TextView.BufferType.EDITABLE);
 
-                String[] notesStrings = getResources().getStringArray(R.array.notes);
-                for (k = 0; k < notesStrings.length - 1; k++)
-                    if (notesStrings[k].equals(record.getNotes()))
-                        break;
-                Spinner spin2 = (Spinner)findViewById(R.id.ScanNotesSpinner);
-                spin2.setSelection(k);
+                EditText spin4 = (EditText)findViewById(R.id.ScanRetailSpinner);
+                spin4.setText(Integer.toString(record.getRetail()), TextView.BufferType.EDITABLE);
 
-                String[] detailsStrings = getResources().getStringArray(R.array.discription);
-                for (k = 0; k < detailsStrings.length - 1; k++)
-                    if (detailsStrings[k].equals(record.getDetails()))
-                        break;
-                Spinner spin3 = (Spinner)findViewById(R.id.ScanDiscriptionSpinner);
-                spin3.setSelection(k);
+                EditText spin5 = (EditText)findViewById(R.id.ScanLandscapeSpinner);
+                spin5.setText(Integer.toString(record.getLandscape()), TextView.BufferType.EDITABLE);
 
+                EditText spin6 = (EditText)findViewById(R.id.ScanDiscriptionSpinner);
+                spin6.setText(record.getDetails(), TextView.BufferType.EDITABLE);
             }
         });
 
@@ -106,23 +97,23 @@ public class ScanItemScreen extends Activity{
                 Record newRec = new Record();
                 String plantname = ((TextView) findViewById(R.id.autoCompleteTextView1)).getText().toString();
 
-                Spinner spin = (Spinner)findViewById(R.id.ScanQtySpinner);
-                int qty = Integer.parseInt(spin.getSelectedItem().toString());
+                EditText spin = (EditText)findViewById(R.id.ScanQtySpinner);
+                int qty = Integer.parseInt((spin.getText().toString()));
 
-                Spinner spin1 = (Spinner)findViewById(R.id.ScanTypeSpinner);
-                String type = spin1.getSelectedItem().toString();
+                EditText spin1 = (EditText)findViewById(R.id.ScanTypeSpinner);
+                String type = spin1.getText().toString();
 
-                Spinner spin2 = (Spinner)findViewById(R.id.ScanNotesSpinner);
-                String notes = spin2.getSelectedItem().toString();
+                EditText spin2 = (EditText)findViewById(R.id.ScanNotesSpinner);
+                String notes = spin2.getText().toString();
 
-                Spinner spin3 = (Spinner)findViewById(R.id.ScanDiscriptionSpinner);
-                String details = spin3.getSelectedItem().toString();
-                
-                Spinner spin4 = (Spinner)findViewById(R.id.ScanRetailSpinner);
-                int retail = Integer.parseInt(spin4.getSelectedItem().toString());
-                
-                Spinner spin5 = (Spinner)findViewById(R.id.ScanLandscapeSpinner);
-                int landscape = Integer.parseInt(spin5.getSelectedItem().toString());
+                EditText spin3 = (EditText)findViewById(R.id.ScanDiscriptionSpinner);
+                String details = spin3.getText().toString();
+
+                EditText spin4 = (EditText)findViewById(R.id.ScanRetailSpinner);
+                int retail = Integer.parseInt(spin4.getText().toString());
+
+                EditText spin5 = (EditText)findViewById(R.id.ScanLandscapeSpinner);
+                int landscape = Integer.parseInt(spin5.getText().toString());
 
                 datasource.updateRecordByName(plantname, qty, type, notes, details, retail, landscape);
 

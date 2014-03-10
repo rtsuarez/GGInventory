@@ -13,6 +13,7 @@ import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
@@ -34,66 +35,61 @@ public class NewRecordScreen extends Activity{
 	
 	private ImageView mImageView;
     private RecordDataSource datasource;
-<<<<<<< HEAD
-
     protected void onDestroy() {
         super.onDestroy();
         datasource.close();
     }
 
-=======
-    
     private Button btnNewRec;
     private Button btnPrintQR;
     private Button btnTakePhoto;
     private TextView plantName;
-    
->>>>>>> 1c6c49b8215a321812fa55a15746cc35d36083c5
+
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.new_record_screen);
+            setContentView(R.layout.new_record_screen);
 
-        datasource = new RecordDataSource(this);
-        datasource.open();
+            datasource = new RecordDataSource(this);
+            datasource.open();
 
-        btnNewRec = (Button) findViewById(R.id.addRecordButton);
-        btnPrintQR = (Button) findViewById(R.id.QRButton);
-        btnTakePhoto = (Button) findViewById(R.id.takePictureButton);
-        plantName = (TextView) findViewById(R.id.autoCompleteTextView1);
-        
-        mImageView = (ImageView) findViewById(R.id.imageView1);
-        
-        setupListeners();
-    }
-    
-    @SuppressLint("NewApi") /*not sure if this is going to break all the things, but i'ma roll w/ it for now */
-	private File getOutputMediaFile(int type){
-    	//file for pics/growingGrounds
-		File mediaStorageDir = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), "GrowingGrounds" + File.separator + plantName.getText().toString());
+            btnNewRec = (Button) findViewById(R.id.addRecordButton);
+            btnPrintQR = (Button) findViewById(R.id.QRButton);
+            btnTakePhoto = (Button) findViewById(R.id.takePictureButton);
+            plantName = (TextView) findViewById(R.id.autoCompleteTextView1);
 
-		if(!mediaStorageDir.exists()){
-			if(!(mediaStorageDir.mkdir() || mediaStorageDir.isDirectory())){
-				Log.d("NewRecordScreen", "directory not created correctly");
-				return null;
-			}
-		}
-		//until i figure out how to grab the first image in a file, they are all getting called the same thing: 1.jpg
-		//String filePath = mediaStorageDir.getPath() + File.separator + "IMG_" + DateFormat.getDateTimeInstance().format(System.currentTimeMillis()) + ".jpg";
-		String filePath = mediaStorageDir.getPath() + File.separator + "1" + ".jpg";
-		filePath.replaceAll("\\s+", "");
-		if(type == PICTURE_REQUEST_CODE){
-			return new File(filePath);
-		}
-		return null;
-	}
-    
-    
+            mImageView = (ImageView) findViewById(R.id.imageView1);
+
+            setupListeners();
+        }
+
+        @SuppressLint("NewApi") /*not sure if this is going to break all the things, but i'ma roll w/ it for now */
+        private File getOutputMediaFile(int type){
+            //file for pics/growingGrounds
+            File mediaStorageDir = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), "GrowingGrounds" + File.separator + plantName.getText().toString());
+
+            if(!mediaStorageDir.exists()){
+                if(!(mediaStorageDir.mkdir() || mediaStorageDir.isDirectory())){
+                    Log.d("NewRecordScreen", "directory not created correctly");
+                    return null;
+                }
+            }
+            //until i figure out how to grab the first image in a file, they are all getting called the same thing: 1.jpg
+            //String filePath = mediaStorageDir.getPath() + File.separator + "IMG_" + DateFormat.getDateTimeInstance().format(System.currentTimeMillis()) + ".jpg";
+            String filePath = mediaStorageDir.getPath() + File.separator + "1" + ".jpg";
+            filePath.replaceAll("\\s+", "");
+            if(type == PICTURE_REQUEST_CODE){
+                return new File(filePath);
+            }
+            return null;
+        }
+
+
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-    	super.onActivityResult(requestCode, resultCode, data);
+        super.onActivityResult(requestCode, resultCode, data);
         if( requestCode == PICTURE_REQUEST_CODE){
-       	   if(RESULT_OK == resultCode){
-       		  Toast.makeText(getBaseContext(), R.string.pictureSuccess, Toast.LENGTH_LONG).show();
-       	 } else if(RESULT_CANCELED == resultCode){
+            if(RESULT_OK == resultCode){
+                Toast.makeText(getBaseContext(), R.string.pictureSuccess, Toast.LENGTH_LONG).show();
+            } else if(RESULT_CANCELED == resultCode){
        		 Toast.makeText(getBaseContext(), R.string.pictureFail, Toast.LENGTH_LONG).show();
        	 }
         }
@@ -112,20 +108,20 @@ public class NewRecordScreen extends Activity{
                 TextView tv = (TextView) findViewById(R.id.autoCompleteTextView1);
                 newRec.setName(tv.getText().toString());
                 
-                Spinner spin = (Spinner)findViewById(R.id.NRQtySpinner);
-                int qty = Integer.parseInt(spin.getSelectedItem().toString());
+                EditText spin = (EditText)findViewById(R.id.NRQtySpinner);
+                int qty = Integer.parseInt(spin.getText().toString());
                 newRec.setQty(qty);
 
-                Spinner spin1 = (Spinner)findViewById(R.id.NRTypeSpinner);
-                String type = spin1.getSelectedItem().toString();
+                EditText spin1 = (EditText)findViewById(R.id.NRTypeSpinner);
+                String type = spin1.getText().toString();
                 newRec.setType(type);
 
-                Spinner spin2 = (Spinner)findViewById(R.id.NRNotesSpinner);
-                String notes = spin2.getSelectedItem().toString();
+                EditText spin2 = (EditText)findViewById(R.id.NRNotesSpinner);
+                String notes = spin2.getText().toString();
                 newRec.setNotes(notes);
 
-                Spinner spin3 = (Spinner)findViewById(R.id.NRDiscriptionSpinner);
-                String details = spin3.getSelectedItem().toString();
+                EditText spin3 = (EditText)findViewById(R.id.NRDiscriptionSpinner);
+                String details = spin3.getText().toString();
                 newRec.setDetails(details);
 
                 datasource.createRecord(newRec);
@@ -142,9 +138,6 @@ public class NewRecordScreen extends Activity{
                 //startActivity(nextScreen);
             	//DatabaseSync dbSync = new DatabaseSync();
             	//dbSync.execute(getApplicationContext());
-
-                GGDataSync dbSync = new GGDataSync();
-                dbSync.execute(getApplicationContext());
 
                 finish();
             }

@@ -49,6 +49,8 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         args.put("_type", type);
         args.put("_notes", notes);
         args.put("_details", details);
+        args.put("_retail", retail);
+        args.put("_landscape", landscape);
 
         db.update(TABLE_NAME, args, "_plantname=\"" + plantname + "\"", null);
     }

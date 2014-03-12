@@ -15,6 +15,8 @@
     <string name="inventory_button">Inventory</string>
     <string name="sales_button">Sales</string>
     <string name="dump_database">Dump Database</string>
+    <string name="sync_to_computer">Sync To Computer</string>
+    <string name="sync_from_computer">Sync From Computer</string>
     <string name="scan_item">Scan Item</string>
     <string name="new_record">New Record</string>
     <string name="retail">Retail</string>

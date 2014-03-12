@@ -88,7 +88,8 @@
         android:layout_alignStart="@+id/ScanNotesSpinner"
         android:layout_below="@+id/ScanNotesSpinner"
         android:background="#fff"
-        android:entries="@array/discription" />
+        android:entries="@array/discription"
+        android:layout_marginBottom="2dp" />
 
     <Spinner
         android:id="@+id/ScanNotesSpinner"
@@ -100,7 +101,8 @@
         android:layout_alignStart="@+id/ScanTypeSpinner"
         android:layout_below="@+id/ScanTypeSpinner"
         android:background="#fff"
-        android:entries="@array/notes" />
+        android:entries="@array/notes"
+        android:layout_marginBottom="2dp" />
 
     <Spinner
         android:id="@+id/ScanTypeSpinner"
@@ -112,7 +114,8 @@
         android:layout_alignStart="@+id/ScanQtySpinner"
         android:layout_below="@+id/ScanQtySpinner"
         android:background="#fff"
-        android:entries="@array/type" />
+        android:entries="@array/type"
+        android:layout_marginBottom="2dp" />
 
     <Spinner
         android:id="@+id/ScanQtySpinner"
@@ -124,7 +127,8 @@
         android:layout_alignStart="@+id/autoCompleteTextView1"
         android:layout_alignTop="@+id/textView3"
         android:background="#fff"
-        android:entries="@array/quantity" />
+        android:entries="@array/quantity"
+        android:layout_marginBottom="2dp" />
 
     <AutoCompleteTextView
         android:id="@+id/autoCompleteTextView1"
@@ -136,7 +140,8 @@
         android:layout_toRightOf="@+id/ScanLandscape"
         android:background="#fff"
         android:ems="10"
-        android:paddingLeft="10dp" >
+        android:paddingLeft="10dp"
+        android:layout_marginBottom="2dp">
 
         <requestFocus />
     </AutoCompleteTextView>
@@ -173,10 +178,10 @@
         android:layout_alignLeft="@+id/ScanLandscape"
         android:layout_alignRight="@+id/autoCompleteTextView1"
         android:layout_below="@+id/ScanLandscape"
-        android:layout_marginTop="5dp"
         android:background="@drawable/green_button"
         android:paddingTop="2dp"
-        android:text="Update" />
+        android:text="Update"
+        android:layout_marginBottom="2dp" />
 
     <Spinner
         android:id="@+id/ScanRetailSpinner"
@@ -188,7 +193,8 @@
         android:layout_alignStart="@+id/ScanDiscriptionSpinner"
         android:layout_below="@+id/textView6"
         android:background="#fff"
-        android:entries="@array/quantity" />
+        android:entries="@array/quantity"
+        android:layout_marginBottom="2dp" />
 
     <Spinner
         android:id="@+id/ScanLandscapeSpinner"
@@ -199,22 +205,26 @@
         android:layout_alignTop="@+id/ScanLandscape"
         android:layout_toRightOf="@+id/ScanLandscape"
         android:background="#fff"
-        android:entries="@array/quantity" />
+        android:entries="@array/quantity"
+        android:layout_marginBottom="2dp" />
 
     <Button
         android:id="@+id/ScanItemPrimaryPicture"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:weight="1"
         android:layout_alignLeft="@+id/updateButton"
         android:layout_alignRight="@+id/SalesTypeText"
         android:layout_below="@+id/updateButton"
         android:background="@drawable/blue_button"
         android:paddingTop="2dp"
-        android:text="Primary Picture" />
+        android:text="Primary Picture"
+        android:layout_marginRight="2dp" />
 
     <Button
+        android:weight="1"
         android:id="@+id/ScanItemSecondaryPicture"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/ScanItemPrimaryPicture"
         android:layout_alignRight="@+id/updateButton"

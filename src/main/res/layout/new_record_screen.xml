@@ -74,17 +74,16 @@
         android:textSize="30sp"
         android:textColor="#fff"/>
 
-    <Spinner
+    <EditText
         android:id="@+id/NRDiscriptionSpinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/NRNotesSpinner"
         android:layout_alignRight="@+id/SalesTypeText"
         android:layout_below="@+id/NRNotesSpinner"
-        android:entries="@array/discription"
         android:background="#fff"/>
 
-    <Spinner
+    <EditText
         android:id="@+id/NRNotesSpinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -92,10 +91,9 @@
         android:layout_alignLeft="@+id/NRTypeSpinner"
         android:layout_alignRight="@+id/SalesTypeText"
         android:layout_below="@+id/NRTypeSpinner"
-        android:entries="@array/notes"
         android:background="#fff"/>
 
-    <Spinner
+    <EditText
         android:id="@+id/NRTypeSpinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -106,14 +104,13 @@
         android:entries="@array/type"
         android:background="#fff"/>
 
-     <Spinner
+     <EditText
         android:id="@+id/NRQtySpinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#fff"
          android:layout_alignRight="@+id/SalesTypeText"
         android:layout_alignTop="@+id/textView3"
-        android:entries="@array/quantity"
          android:layout_alignBottom="@+id/textView3"
          android:layout_toRightOf="@+id/TextView02" />
 
@@ -145,24 +142,12 @@
         android:layout_toRightOf="@+id/NRDiscriptionSpinner"
         android:layout_below="@+id/SalesTypeText" />
 
-    <Spinner
-        android:id="@+id/NRRetailSpinner"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/TextView01"
-        android:layout_alignRight="@+id/NRDiscriptionSpinner"
-        android:layout_below="@+id/textView6"
-        android:entries="@array/quantity"
-        android:background="#fff"
-        android:layout_toRightOf="@+id/TextView02" />
-
-    <Spinner
+    <EditText
         android:id="@+id/NRLandscapeSpinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignRight="@+id/NRRetailSpinner"
         android:layout_below="@+id/TextView01"
-        android:entries="@array/quantity"
         android:background="#fff"
         android:layout_alignBottom="@+id/TextView02"
         android:layout_toRightOf="@+id/TextView02" />
@@ -225,5 +210,14 @@
             android:background="@drawable/blue_button"
             android:text="Secondary Picture" />
     </LinearLayout>
+
+    <EditText
+        android:id="@+id/NRRetailSpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/NRDiscriptionSpinner"
+        android:layout_toRightOf="@+id/TextView02"
+        android:background="#fff"
+        android:ems="10" />
 
 </RelativeLayout>

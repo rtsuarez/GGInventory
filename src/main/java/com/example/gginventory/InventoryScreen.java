@@ -57,7 +57,7 @@ public class InventoryScreen extends Activity {
         btnDumpDb.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
                 //Closing SecondScreen Activity
-                List<Record> records = datasource.getAllRecord();
+                /*List<Record> records = datasource.getAllRecord();
                 ListIterator<Record> it = records.listIterator();
                 String dump = "Start Db Dump: \n" +
                         "NAME   QTY\n";
@@ -69,9 +69,17 @@ public class InventoryScreen extends Activity {
                 myText.setText(dump);
                 lView.addView(myText);
 
-                setContentView(lView);
+                setContentView(lView);*/
+
+                GGDataSync dbSync = new GGDataSync();
+                dbSync.execute(getApplicationContext());
+
+
                 //finish();
+
+
             }
+
         });
 
     }

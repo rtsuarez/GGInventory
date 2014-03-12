@@ -14,7 +14,7 @@ import android.content.Context;
 import android.os.AsyncTask;
 
 public class DatabaseSync extends AsyncTask<Context, Integer, Boolean> {
-	private final static String serverIp = "10.151.5.41";
+	private final static String serverIp = "192.168.0.4";
 	private final static int port = 2045;
 	private final static String dbName = "/databases/gginventory.db";
 	
@@ -30,27 +30,27 @@ public class DatabaseSync extends AsyncTask<Context, Integer, Boolean> {
 			int bytesRead;
 			int current = 0;
 			byte[] mybytearray = new byte[filesize];
-			
+
 			InputStream is = socket.getInputStream();
-			
+
 			BufferedReader ir = new BufferedReader(new InputStreamReader(is));
 			FileOutputStream fos = new FileOutputStream(dbPath);
 			BufferedOutputStream bos = new BufferedOutputStream(fos);
 			bytesRead = is.read(mybytearray, 0, mybytearray.length);
 			current = bytesRead;
-			
+
 			do {
 				bytesRead = is.read(mybytearray, current, (mybytearray.length - current));
 				if(bytesRead >= 0) {
 					current += bytesRead;
 				}
 			} while (bytesRead > -1);
-			
+
 			bos.write(mybytearray, 0, current);
 			bos.flush();
 			bos.close();
 			ir.close();
-			
+
 			socket.close();
 		}
 		catch (Exception e) {

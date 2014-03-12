@@ -49,6 +49,8 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         args.put("_type", type);
         args.put("_notes", notes);
         args.put("_details", details);
+        args.put("_retail", retail);
+        args.put("_landscape", landscape);
 
         db.update(TABLE_NAME, args, "_plantname=\"" + plantname + "\"", null);
     }
@@ -60,7 +62,11 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase database) {
     	Log.w("MySQLiteHelper", DATABASE_CREATE);
-        database.execSQL(DATABASE_CREATE);
+        System.out.println(DATABASE_CREATE);
+        //database.execSQL("DROP TABLE inventory;");
+        try {
+            database.execSQL(DATABASE_CREATE);
+        } catch (Exception e){}
     }
 
     @Override

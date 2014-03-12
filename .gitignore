@@ -1,1 +1,7 @@
 /build
+
+*.lock
+
+*.bin
+
+*.xml

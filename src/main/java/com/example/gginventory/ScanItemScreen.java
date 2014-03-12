@@ -2,7 +2,9 @@ package com.example.gginventory;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -12,6 +14,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.database.Cursor;
 
 import java.util.List;
@@ -20,13 +23,18 @@ import java.util.List;
  * Created by Ryan on 1/20/14.
  */
 public class ScanItemScreen extends Activity{
+	
+	static final int PICTURE_REQUEST_CODE = 1;
 
     private RecordDataSource datasource;
-
+    private Button btnSecondaryPhoto, btnPrimaryPhoto;
+    private String plantName;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.scan_item_screen);
+        btnPrimaryPhoto = (Button) findViewById(R.id.ScanItemPrimaryPicture);
+        btnSecondaryPhoto = (Button) findViewById(R.id.ScanItemSecondaryPicture);
 
         datasource = new RecordDataSource(this);
         datasource.open();
@@ -127,6 +135,25 @@ public class ScanItemScreen extends Activity{
                 datasource.updateRecordByName(plantname, qty, type, notes, details, retail, landscape);
 
                 finish();
+            }
+        });
+        btnPrimaryPhoto.setOnClickListener(new View.OnClickListener() {
+
+        	public void onClick(View argo0){
+            	Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+	        	Uri uri = PictureHelper.getOutputMediaFileUri(PICTURE_REQUEST_CODE, 1, ((TextView) findViewById(R.id.autoCompleteTextView1)).getText().toString());
+	        	intent.putExtra(MediaStore.EXTRA_OUTPUT, uri);
+	        	startActivityForResult(intent, PICTURE_REQUEST_CODE);
+            }
+        });
+
+        btnSecondaryPhoto.setOnClickListener(new View.OnClickListener(){
+
+            public void onClick(View argo0){
+            	Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+	        	Uri uri = PictureHelper.getOutputMediaFileUri(PICTURE_REQUEST_CODE, 2, ((TextView) findViewById(R.id.autoCompleteTextView1)).getText().toString());
+	        	intent.putExtra(MediaStore.EXTRA_OUTPUT, uri);
+	        	startActivityForResult(intent, PICTURE_REQUEST_CODE);
             }
         });
     }

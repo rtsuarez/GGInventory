@@ -8,7 +8,7 @@
     >
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/SalesTypeText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -68,7 +68,7 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView1"
+        android:layout_below="@+id/SalesTypeText"
         android:text="Name"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textSize="30sp"
@@ -79,7 +79,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/NRNotesSpinner"
-        android:layout_alignRight="@+id/textView1"
+        android:layout_alignRight="@+id/SalesTypeText"
         android:layout_below="@+id/NRNotesSpinner"
         android:entries="@array/discription"
         android:background="#fff"/>
@@ -90,7 +90,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/textView6"
         android:layout_alignLeft="@+id/NRTypeSpinner"
-        android:layout_alignRight="@+id/textView1"
+        android:layout_alignRight="@+id/SalesTypeText"
         android:layout_below="@+id/NRTypeSpinner"
         android:entries="@array/notes"
         android:background="#fff"/>
@@ -101,7 +101,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/textView5"
         android:layout_alignLeft="@+id/NRQtySpinner"
-        android:layout_alignRight="@+id/textView1"
+        android:layout_alignRight="@+id/SalesTypeText"
         android:layout_below="@+id/NRQtySpinner"
         android:entries="@array/type"
         android:background="#fff"/>
@@ -111,7 +111,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#fff"
-         android:layout_alignRight="@+id/textView1"
+         android:layout_alignRight="@+id/SalesTypeText"
         android:layout_alignTop="@+id/textView3"
         android:entries="@array/quantity"
          android:layout_alignBottom="@+id/textView3"
@@ -143,7 +143,7 @@
         android:layout_alignParentEnd="true"
         android:layout_above="@+id/linearLayout1"
         android:layout_toRightOf="@+id/NRDiscriptionSpinner"
-        android:layout_below="@+id/textView1" />
+        android:layout_below="@+id/SalesTypeText" />
 
     <Spinner
         android:id="@+id/NRRetailSpinner"
@@ -199,15 +199,6 @@
         android:orientation="horizontal" >
 
         <Button
-            android:id="@+id/QRButton"
-            android:layout_width="0dp"
-            android:layout_height="fill_parent"
-            android:layout_margin="1dp"
-            android:layout_weight="1"
-            android:background="@drawable/green_button"
-            android:text="Print QR Code" />
-
-        <Button
             android:id="@+id/addRecordButton"
             android:layout_width="0dp"
             android:layout_height="fill_parent"
@@ -217,13 +208,22 @@
             android:text="Add Record" />
 
         <Button
-            android:id="@+id/takePictureButton"
+            android:id="@+id/NewRecordPrimaryPicture"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_margin="1dp"
+            android:layout_weight="1"
+            android:background="@drawable/green_button"
+            android:text="Primary Picture" />
+
+        <Button
+            android:id="@+id/NewRecordSecondaryPicture"
             android:layout_width="0dp"
             android:layout_height="fill_parent"
             android:layout_margin="1dp"
             android:layout_weight="1"
             android:background="@drawable/blue_button"
-            android:text="Take Picture" />
+            android:text="Secondary Picture" />
     </LinearLayout>
 
 </RelativeLayout>

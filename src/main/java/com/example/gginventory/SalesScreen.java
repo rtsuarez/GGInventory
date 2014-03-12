@@ -14,11 +14,13 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,6 +31,8 @@ public class SalesScreen extends Activity {
 	private RecordDataSource datasource;
 	private ArrayList<String> matchList;
 	private ImageView plantPicture;
+	private Spinner typeSpinner;
+	private String type = "";
 	
     public void onCreate(Bundle savedInstanceState) {
     	super.onCreate(savedInstanceState);
@@ -41,6 +45,7 @@ public class SalesScreen extends Activity {
 		textField = (EditText)findViewById(R.id.salesEditText);
 		plantList = (ListView)findViewById(R.id.salesPlantList);
 		plantPicture = (ImageView)findViewById(R.id.salesPlantPicture);
+		typeSpinner = (Spinner)findViewById(R.id.sales_spinner);
         datasource = new RecordDataSource(this);
         datasource.open();
         matchList = new ArrayList<String>();
@@ -52,6 +57,16 @@ public class SalesScreen extends Activity {
 	 * pretty good about it, so I'm not too worried. 
 	 */
 	protected void initAddListeners() {
+		typeSpinner.setOnItemSelectedListener(new OnItemSelectedListener() {
+		    @Override
+		    public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+		    	type = typeSpinner.getSelectedItem().toString();
+		    }
+
+		    @Override
+		    public void onNothingSelected(AdapterView<?> parentView) {}
+
+		});
 		textField.addTextChangedListener(new TextWatcher() {
 			
 			@Override

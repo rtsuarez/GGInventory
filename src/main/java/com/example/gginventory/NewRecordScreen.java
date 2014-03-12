@@ -36,8 +36,8 @@ public class NewRecordScreen extends Activity{
     private RecordDataSource datasource;
     
     private Button btnNewRec;
-    private Button btnPrintQR;
-    private Button btnTakePhoto;
+    private Button btnPrimaryPhoto;
+    private Button btnSecondaryPhoto;
     private TextView plantName;
     
     public void onCreate(Bundle savedInstanceState) {
@@ -48,35 +48,14 @@ public class NewRecordScreen extends Activity{
         datasource.open();
 
         btnNewRec = (Button) findViewById(R.id.addRecordButton);
-        btnPrintQR = (Button) findViewById(R.id.QRButton);
-        btnTakePhoto = (Button) findViewById(R.id.takePictureButton);
+        btnPrimaryPhoto = (Button) findViewById(R.id.NewRecordPrimaryPicture);
+        btnSecondaryPhoto = (Button) findViewById(R.id.NewRecordSecondaryPicture);
         plantName = (TextView) findViewById(R.id.autoCompleteTextView1);
         
         mImageView = (ImageView) findViewById(R.id.imageView1);
         
         setupListeners();
     }
-    
-    @SuppressLint("NewApi") /*not sure if this is going to break all the things, but i'ma roll w/ it for now */
-	private File getOutputMediaFile(int type){
-    	//file for pics/growingGrounds
-		File mediaStorageDir = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), "GrowingGrounds" + File.separator + plantName.getText().toString());
-
-		if(!mediaStorageDir.exists()){
-			if(!(mediaStorageDir.mkdir() || mediaStorageDir.isDirectory())){
-				Log.d("NewRecordScreen", "directory not created correctly");
-				return null;
-			}
-		}
-		//until i figure out how to grab the first image in a file, they are all getting called the same thing: 1.jpg
-		//String filePath = mediaStorageDir.getPath() + File.separator + "IMG_" + DateFormat.getDateTimeInstance().format(System.currentTimeMillis()) + ".jpg";
-		String filePath = mediaStorageDir.getPath() + File.separator + "1" + ".jpg";
-		filePath.replaceAll("\\s+", "");
-		if(type == PICTURE_REQUEST_CODE){
-			return new File(filePath);
-		}
-		return null;
-	}
     
     
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -124,21 +103,21 @@ public class NewRecordScreen extends Activity{
             }
         });
 
-        btnPrintQR.setOnClickListener(new View.OnClickListener() {
+        btnPrimaryPhoto.setOnClickListener(new View.OnClickListener() {
 
-            public void onClick(View arg0) {
-                //Starting a new Intent
-                //Intent nextScreen = new Intent(getApplicationContext(), InventoryScreen.class);
-                //Sending data to another Activity
-                //startActivity(nextScreen);
-            	DatabaseSync dbSync = new DatabaseSync();
-            	dbSync.execute(getApplicationContext());
-
-                //finish();
+        	public void onClick(View argo0){
+            	if(plantName.getText().toString().equals("")){
+            		Toast.makeText(getBaseContext(), "Must fill out plant name before taking picture", Toast.LENGTH_LONG).show();
+            		return;
+            	}
+            	Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+	        	Uri uri = PictureHelper.getOutputMediaFileUri(PICTURE_REQUEST_CODE, 1, plantName.getText().toString());
+	        	intent.putExtra(MediaStore.EXTRA_OUTPUT, uri);
+	        	startActivityForResult(intent, PICTURE_REQUEST_CODE);
             }
         });
 
-        btnTakePhoto.setOnClickListener(new View.OnClickListener(){
+        btnSecondaryPhoto.setOnClickListener(new View.OnClickListener(){
 
             public void onClick(View argo0){
             	if(plantName.getText().toString().equals("")){
@@ -146,14 +125,10 @@ public class NewRecordScreen extends Activity{
             		return;
             	}
             	Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-	        	Uri uri = getOutputMediaFileUri(PICTURE_REQUEST_CODE);
+	        	Uri uri = PictureHelper.getOutputMediaFileUri(PICTURE_REQUEST_CODE, 2, plantName.getText().toString());
 	        	intent.putExtra(MediaStore.EXTRA_OUTPUT, uri);
 	        	startActivityForResult(intent, PICTURE_REQUEST_CODE);
             }
         });
     }
-    
-	private Uri getOutputMediaFileUri(int type){
-		return Uri.fromFile(getOutputMediaFile(type));
-	}
 }

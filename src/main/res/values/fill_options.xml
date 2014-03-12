@@ -29,6 +29,18 @@
         <item>Fern</item>
     </string-array>
     
+    <string-array name="typeSearch">
+        <item>[None]</item>
+        <item>Perennial</item>
+        <item>Native</item>
+        <item>Succulent</item>
+        <item>Grass</item>
+        <item>Tree</item>
+        <item>Herb</item>
+        <item>Edible</item>
+        <item>Fern</item>
+    </string-array>
+    
     <string-array name="discription">
         <item>Full</item>
         <item>New crop</item>

@@ -31,7 +31,7 @@ public class InventoryScreen extends Activity {
 
         Button btnScan = (Button) findViewById(R.id.scan_item_button);
         Button btnNewRec = (Button) findViewById(R.id.new_record_button);
-        Button btnDumpDb = (Button) findViewById(R.id.dump_database_button);
+        Button btnDumpDb = (Button) findViewById(R.id.sync_to_computer);
 
         Intent i = getIntent();
 

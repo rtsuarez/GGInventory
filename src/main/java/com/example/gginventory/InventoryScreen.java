@@ -31,7 +31,8 @@ public class InventoryScreen extends Activity {
 
         Button btnScan = (Button) findViewById(R.id.scan_item_button);
         Button btnNewRec = (Button) findViewById(R.id.new_record_button);
-        Button btnDumpDb = (Button) findViewById(R.id.sync_to_computer);
+        Button btnTabToPc = (Button) findViewById(R.id.sync_to_computer);
+        Button btnPcToTab = (Button) findViewById(R.id.sync_from_computer);
 
         Intent i = getIntent();
 
@@ -54,29 +55,21 @@ public class InventoryScreen extends Activity {
             }
         });
 
-        btnDumpDb.setOnClickListener(new View.OnClickListener() {
+        btnTabToPc.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
-                //Closing SecondScreen Activity
-                /*List<Record> records = datasource.getAllRecord();
-                ListIterator<Record> it = records.listIterator();
-                String dump = "Start Db Dump: \n" +
-                        "NAME   QTY\n";
-                while(it.hasNext()) {
-                    Record r = it.next();
-                    dump +=  r.getName() + " " + r.getQty() + " " + r.getType() + " "
-                            + r.getNotes() + " " + r.getDetails() + "\n";
-                }
-                myText.setText(dump);
-                lView.addView(myText);
-
-                setContentView(lView);*/
 
                 GGDataSync dbSync = new GGDataSync();
                 dbSync.execute(getApplicationContext());
 
+            }
 
-                //finish();
+        });
 
+        btnPcToTab.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0) {
+
+                DatabaseSync dbSync = new DatabaseSync();
+                dbSync.execute(getApplicationContext());
 
             }
 

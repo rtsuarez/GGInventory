@@ -2,6 +2,8 @@ package com.example.gginventory;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.location.Location;
@@ -35,6 +37,7 @@ public class NewRecordScreen extends Activity{
 	
 	private ImageView mImageView;
     private RecordDataSource datasource;
+    private Boolean inputError = false;
     protected void onDestroy() {
         super.onDestroy();
         datasource.close();
@@ -85,7 +88,8 @@ public class NewRecordScreen extends Activity{
                 Record newRec = new Record();
                 TextView tv = (TextView) findViewById(R.id.autoCompleteTextView1);
                 newRec.setName(tv.getText().toString());
-                
+
+                try {
                 EditText spin = (EditText)findViewById(R.id.NRQtySpinner);
                 int qty = Integer.parseInt(spin.getText().toString());
                 newRec.setQty(qty);
@@ -101,9 +105,38 @@ public class NewRecordScreen extends Activity{
                 EditText spin3 = (EditText)findViewById(R.id.NRDiscriptionSpinner);
                 String details = spin3.getText().toString();
                 newRec.setDetails(details);
+                } catch (Exception e) {
 
-                datasource.createRecord(newRec);
-                finish();
+                    AlertDialog.Builder alertDialog2 = new AlertDialog.Builder(
+                            NewRecordScreen.this);
+
+// Setting Dialog Title
+                    alertDialog2.setTitle("Error: incorrect values entered.");
+
+// Setting Dialog Message
+                    alertDialog2.setMessage("Please check and make sure that quantity, landscape, and retail are NUMBER values");
+
+// Setting Icon to Dialog
+                    //alertDialog2.setIcon(R.drawable.delete);
+
+// Setting Positive "Yes" Btn
+                    inputError = true;
+                    alertDialog2.setPositiveButton("Okay",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                    // Write your code here to execute after dialog
+                                    inputError = true;
+                                }
+                            });
+
+// Showing Alert Dialog
+                    alertDialog2.show();
+                }
+                if (inputError == false) {
+                    datasource.createRecord(newRec);
+                    finish();
+                } else
+                    inputError = false;
             }
         });
 

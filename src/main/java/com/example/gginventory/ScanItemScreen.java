@@ -16,6 +16,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.database.Cursor;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 
 import org.w3c.dom.Text;
 
@@ -31,6 +33,7 @@ public class ScanItemScreen extends Activity{
     private RecordDataSource datasource;
     private Button btnSecondaryPhoto, btnPrimaryPhoto;
     private String plantName;
+    private Boolean inputError = false;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -101,31 +104,59 @@ public class ScanItemScreen extends Activity{
                 //Intent nextScreen = new Intent(getApplicationContext(), InventoryScreen.class);
                 //Sending data to another Activity
                 //startActivity(nextScreen);
-
                 Record newRec = new Record();
                 String plantname = ((TextView) findViewById(R.id.autoCompleteTextView1)).getText().toString();
 
-                EditText spin = (EditText)findViewById(R.id.ScanQtySpinner);
-                int qty = Integer.parseInt((spin.getText().toString()));
+                try {
+                    EditText spin = (EditText)findViewById(R.id.ScanQtySpinner);
+                    int qty = Integer.parseInt((spin.getText().toString()));
 
-                EditText spin1 = (EditText)findViewById(R.id.ScanTypeSpinner);
-                String type = spin1.getText().toString();
+                    EditText spin1 = (EditText)findViewById(R.id.ScanTypeSpinner);
+                    String type = spin1.getText().toString();
 
-                EditText spin2 = (EditText)findViewById(R.id.ScanNotesSpinner);
-                String notes = spin2.getText().toString();
+                    EditText spin2 = (EditText)findViewById(R.id.ScanNotesSpinner);
+                    String notes = spin2.getText().toString();
 
-                EditText spin3 = (EditText)findViewById(R.id.ScanDiscriptionSpinner);
-                String details = spin3.getText().toString();
+                    EditText spin3 = (EditText)findViewById(R.id.ScanDiscriptionSpinner);
+                    String details = spin3.getText().toString();
 
-                EditText spin4 = (EditText)findViewById(R.id.ScanRetailSpinner);
-                int retail = Integer.parseInt(spin4.getText().toString());
+                    EditText spin4 = (EditText)findViewById(R.id.ScanRetailSpinner);
+                    int retail = Integer.parseInt(spin4.getText().toString());
 
-                EditText spin5 = (EditText)findViewById(R.id.ScanLandscapeSpinner);
-                int landscape = Integer.parseInt(spin5.getText().toString());
+                    EditText spin5 = (EditText)findViewById(R.id.ScanLandscapeSpinner);
+                    int landscape = Integer.parseInt(spin5.getText().toString());
 
-                datasource.updateRecordByName(plantname, qty, type, notes, details, retail, landscape);
+                    datasource.updateRecordByName(plantname, qty, type, notes, details, retail, landscape);
+                } catch (Exception e) {
+                    AlertDialog.Builder alertDialog2 = new AlertDialog.Builder(
+                            ScanItemScreen.this);
 
-                finish();
+// Setting Dialog Title
+                    alertDialog2.setTitle("Error: incorrect values entered.");
+
+// Setting Dialog Message
+                    alertDialog2.setMessage("Please check and make sure that quantity, landscape, and retail are NUMBER values");
+
+// Setting Icon to Dialog
+                    //alertDialog2.setIcon(R.drawable.delete);
+
+// Setting Positive "Yes" Btn
+                    inputError = true;
+                    alertDialog2.setPositiveButton("Okay",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                    // Write your code here to execute after dialog
+                                    inputError = true;
+                                }
+                            });
+
+// Showing Alert Dialog
+                    alertDialog2.show();
+                }
+                if (inputError == false)
+                    finish();
+                else
+                    inputError = false;
             }
         });
         btnPrimaryPhoto.setOnClickListener(new View.OnClickListener() {
